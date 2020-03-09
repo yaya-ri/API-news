@@ -34,6 +34,10 @@ func main() {
 	env := os.Getenv("APP_ENV")
 	if env == "development" {
 		startApp()
+	} else if env == "production" {
+		startApp()
+	} else {
+		startApp()
 	}
 
 }

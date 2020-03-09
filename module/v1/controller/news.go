@@ -56,6 +56,10 @@ func (controller *NewsController) Store(c *gin.Context) {
 
 //Find find controller
 func (controller *NewsController) Find(c *gin.Context) {
+
+	from := 0
+	page := helpers.GetPage(c)
+	limit := helpers.GetLimit(c)
 	filter := map[string]interface{}{
 		"sort": []map[string]interface{}{
 			map[string]interface{}{
@@ -66,7 +70,12 @@ func (controller *NewsController) Find(c *gin.Context) {
 		},
 	}
 
-	getES, err := controller.elasticSearchService.Find("news", 10, 0, filter)
+	if page > 1 {
+		pass := limit * (page - 1)
+		from = from + pass
+	}
+
+	getES, err := controller.elasticSearchService.Find("news", limit, from, filter)
 	if err != nil {
 		response := controller.ResponseHelper.InternalServerError(gin.H{}, err.Error())
 		c.JSON(response.Code, response)
@@ -114,7 +123,10 @@ func (controller *NewsController) Find(c *gin.Context) {
 		})
 	}
 
-	response := controller.ResponseHelper.SuccessResponse(&newsListResponse, "Success get news")
+	response := controller.ResponseHelper.SuccessResponse(gin.H{
+		"data":         &newsListResponse,
+		"current_page": page,
+	}, "Success get news")
 	c.JSON(response.Code, response)
 	return
 }

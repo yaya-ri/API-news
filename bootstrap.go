@@ -29,8 +29,10 @@ var queueService service.QueueServiceInterface
 //RouteInit initial route apps
 func RouteInit() {
 
+	//migration DB
 	DB.AutoMigrate(models.News{})
 
+	//get env rabbitMq
 	rabbitMQHost := os.Getenv("RABBITMQ_HOST")
 	rabbitMQPort, _ := strconv.Atoi(os.Getenv("RABBITMQ_PORT"))
 	rabbitMQUser := os.Getenv("RABBITMQ_USER")
