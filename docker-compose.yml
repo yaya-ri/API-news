@@ -2,27 +2,27 @@ version: "3.7"
 
 services:
   es:
-    container_name: es
+    container_name: news_es_test
     image: elasticsearch:7.0.1
     ports:
-      - "9201:9200"
-      - "9301:9300"
+      - "9207:9200"
+      - "9307:9300"
     environment:
       discovery.type: single-node
   rabbitmq:
-    container_name: rabbitmq
+    container_name: news_rabbitmq_test
     image: rabbitmq:3-management
     ports:
-      - "5673:5672"
-      - "15673:15672"
+      - "5677:5672"
+      - "15677:15672"
     environment:
       RABBITMQ_DEFAULT_USER: admin
       RABBITMQ_DEFAULT_PASS: admin
   mysql:
-    container_name: mysql
+    container_name: news_mysql_test
     image: circleci/mysql:5.7
     ports:
-      - "3308:3306"
+      - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: admin
     entrypoint:

@@ -8,17 +8,15 @@ import (
 	"strconv"
 	"time"
 
-	controllers "github.com/yaya-ri/API-news/module/v1/controller"
-	models "github.com/yaya-ri/API-news/module/v1/model"
-	requests "github.com/yaya-ri/API-news/module/v1/object/request"
-
-	service "github.com/yaya-ri/API-news/module/v1/service"
-
 	"github.com/gin-contrib/cache"
 	"github.com/gin-contrib/cache/persistence"
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 	log "github.com/sirupsen/logrus"
+	controllers "github.com/yaya-ri/API-news/module/v1/controller"
+	models "github.com/yaya-ri/API-news/module/v1/model"
+	requests "github.com/yaya-ri/API-news/module/v1/object/request"
+	service "github.com/yaya-ri/API-news/module/v1/service"
 )
 
 //DB global variable
