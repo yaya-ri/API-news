@@ -74,5 +74,33 @@ result with cacher 5 second
 
 response
 ```
-
+{
+    "code": 200,
+    "error": null,
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 4,
+                "author": "yayaaaaa",
+                "body": "Lorem ipsum dolor",
+                "created": "2020-03-09 11:01:23"
+            },
+            {
+                "id": 3,
+                "author": "yayaaaaa",
+                "body": "Lorem ipsum dolor",
+                "created": "2020-03-09 11:01:21"
+            },
+            {
+                "id": 2,
+                "author": "yayaaaaa",
+                "body": "Lorem ipsum dolor",
+                "created": "2020-03-09 11:01:19"
+            }
+        ]
+    },
+    "message": "Success get news",
+    "status": "success"
+}
 ```
