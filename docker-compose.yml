@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  es:
+    container_name: es
+    image: elasticsearch:7.0.1
+    ports:
+      - "9201:9200"
+      - "9301:9300"
+    environment:
+      discovery.type: single-node
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    ports:
+      - "5673:5672"
+      - "15673:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+  mysql:
+    container_name: mysql
+    image: circleci/mysql:5.7
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+    entrypoint:
+      sh -c "echo 'CREATE DATABASE IF NOT EXISTS news; CREATE DATABASE IF NOT EXISTS news;' > /docker-entrypoint-initdb.d/init.sql;
+      /usr/local/bin/docker-entrypoint.sh --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+      "
