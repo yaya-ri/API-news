@@ -4,8 +4,8 @@ import (
 	"time"
 
 	models "github.com/yaya-ri/API-news/module/v1/model"
-	requests "github.com/yaya-ri/module/v1/object/request"
-	repository "github.com/yaya-ri/module/v1/repository"
+	requests "github.com/yaya-ri/API-news/module/v1/object/request"
+	repository "github.com/yaya-ri/API-news/module/v1/repository"
 
 	"github.com/jinzhu/gorm"
 )
