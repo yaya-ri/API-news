@@ -111,4 +111,6 @@ if there is any problem with GET, please:
 docker-compose down
 ```
 
-then start again from number 1 (`docker-compose up`)
+then start again from number 1 (`docker-compose up`), 
+
+i thinks the problem is on elasticsearch service test. cause i am still learning and i don't know how to mock elasticsearch test. so this test direct access to elasticsearch.
