@@ -7,7 +7,7 @@ import (
 )
 
 func TestCheckIndexExist(t *testing.T) {
-	service := ElasticSearchServiceHandler("localhost", 9207)
+	service := ElasticSearchServiceHandler("localhost", 9201)
 	service.Clear()
 
 	expected := false
@@ -24,7 +24,7 @@ func TestCheckIndexExist(t *testing.T) {
 
 func TestCreateIndex(t *testing.T) {
 
-	service := ElasticSearchServiceHandler("localhost", 9207)
+	service := ElasticSearchServiceHandler("localhost", 9201)
 	service.Clear()
 
 	err := service.CreateIndex("newss", map[string]interface{}{
@@ -48,7 +48,7 @@ func TestCreateIndex(t *testing.T) {
 
 func TestElasticSearchAddIndex(t *testing.T) {
 
-	service := ElasticSearchServiceHandler("localhost", 9207)
+	service := ElasticSearchServiceHandler("localhost", 9201)
 	service.Clear()
 
 	service.CreateIndex("newss", map[string]interface{}{
