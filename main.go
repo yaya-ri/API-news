@@ -42,6 +42,7 @@ func main() {
 
 }
 
+//startApp start API
 func startApp() {
 	dbConn, err := db.InitDBSQL()
 	if err != nil {
